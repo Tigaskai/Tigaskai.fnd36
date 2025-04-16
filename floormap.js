@@ -19,8 +19,8 @@ function drawTag(shape) {
  if (shape) {
  ctx.fillStyle = 'black';
  ctx.font = '16px Arial';
- const width = ctx.measureText(shape.tag).width;
- const x = shape.x + (shape.width - width) / 2;
+ const Width = ctx.measureText(shape.tag).width;
+ const x = shape.x + (shape.width - Width) / 2;
  const y = shape.y + (shape.height + 16) / 2;
  ctx.fillText(shape.tag, x, y);
  }
@@ -48,7 +48,7 @@ function getShapeAt(x, y) {
  });
 }
 
-function handleMouseDown(event) {
+function mouseDown(event) {
  const x = event.offsetX;
  const y = event.offsetY;
  const shape = getShapeAt(x, y);
@@ -65,7 +65,7 @@ function handleMouseDown(event) {
  }
 }
 
-function handleMouseMove(event) {
+function mouseMove(event) {
  if (drag) {
  rect.x = event.offsetX - rect.width / 2;
  rect.y = event.offsetY - rect.height / 2;
@@ -77,12 +77,12 @@ function handleMouseMove(event) {
  }
 }
 
-function handleMouseUp() {
+function mouseUp() {
  drag = false;
  resizing = false;
 }
 
-function handleKeyDown(event) {
+function keyDown(event) {
  if (select && event.key === 'Delete') {
  shapes = shapes.filter(function(shape) {
  return shape !== rect;
@@ -92,7 +92,7 @@ function handleKeyDown(event) {
  }
 }
 
-function handleAddButtonClick() {
+function addButtonClick() {
  const itemName = document.getElementById('itemName').value;
  const color = document.getElementById('color').value;
  const newShape = { x: 50, y: 50, width: 100, height: 100, tag: itemName, color: color };
@@ -100,7 +100,7 @@ function handleAddButtonClick() {
  drawRect();
 }
 
-function handleCanvasClick(event) {
+function canvasClick(event) {
  const x = event.offsetX;
  const y = event.offsetY;
  const shape = getShapeAt(x, y);
@@ -111,9 +111,9 @@ function handleCanvasClick(event) {
  }
 }
 
-canvas.addEventListener('mousedown', handleMouseDown);
-canvas.addEventListener('mousemove', handleMouseMove);
-canvas.addEventListener('mouseup', handleMouseUp);
-document.addEventListener('keydown', handleKeyDown);
-document.getElementById('addButton').addEventListener('click', handleAddButtonClick);
-canvas.addEventListener('click', handleCanvasClick);
+canvas.addEventListener('mousedown', mouseDown);
+canvas.addEventListener('mousemove', mouseMove);
+canvas.addEventListener('mouseup', mouseUp);
+document.addEventListener('keydown', keyDown);
+document.getElementById('addButton').addEventListener('click', addButtonClick);
+canvas.addEventListener('click', canvasClick);
