@@ -19,8 +19,8 @@ function drawTag(shape) {
  if (shape) {
  ctx.fillStyle = 'black';
  ctx.font = '16px Arial';
- const Width = ctx.measureText(shape.tag).width;
- const x = shape.x + (shape.width - Width) / 2;
+ const width = ctx.measureText(shape.tag).width;
+ const x = shape.x + (shape.width - width) / 2;
  const y = shape.y + (shape.height + 16) / 2;
  ctx.fillText(shape.tag, x, y);
  }
