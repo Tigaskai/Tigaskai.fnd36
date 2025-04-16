@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#000000">
+        
+        <link rel="stylesheet" href="floormapmaking.css">
+    </head>
+      
+    <body>
+        <h1>フロアマップ作成</h1>
+
+       <canvas id="myCanvas"  width=820 height=450></canvas>
+       
+        <div id = "floorName">フロアマップ</div> 
+        <button id="saveButton">保存</button>
+
+        <div id="shapesInput">
+            <input type="text" id="itemName" placeholder="図形の名称">
+            <button id="addButton">追加</button>
+            <div>
+                <input type="color" id="color" value="#f6b73c"/>
+                <label>color</label>
+              </div>
+        </div>
+
+
+    </body>
+    <script type="text/javascript" src="floormap.js"></script>
+</html>     
