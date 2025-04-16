@@ -10,19 +10,19 @@ openButton.addEventListener("click",newopen);
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 let rect = null; 
-let isDragging = false;
-let isResizing = false;
-let isSelected = false;
+let drag = false; 
+let resizing = false;
+let select = false; 
 let shapes = [];
 
 function drawTag(shape) {
  if (shape) {
  ctx.fillStyle = 'black';
  ctx.font = '16px Arial';
- const textWidth = ctx.measureText(shape.tag).width;
- const textX = shape.x + (shape.width - textWidth) / 2;
- const textY = shape.y + (shape.height + 16) / 2;
- ctx.fillText(shape.tag, textX, textY);
+ const Width = ctx.measureText(shape.tag).width;
+ const x = shape.x + (shape.width - Width) / 2;
+ const y = shape.y + (shape.height + 16) / 2;
+ ctx.fillText(shape.tag, x, y);
  }
 }
 
@@ -48,42 +48,42 @@ function getShapeAt(x, y) {
  });
 }
 
-function handleMouseDown(e) {
- const mouseX = e.offsetX;
- const mouseY = e.offsetY;
- const shape = getShapeAt(mouseX, mouseY);
+function handleMouseDown(event) {
+ const x = event.offsetX;
+ const y = event.offsetY;
+ const shape = getShapeAt(x, y);
  if (shape) {
- if (mouseX > shape.x + shape.width - 10 && mouseY > shape.y + shape.height - 10) {
- isResizing = true;
+ if (x > shape.x + shape.width - 10 && y > shape.y + shape.height - 10) {
+ resizing = true;
  } else {
- isDragging = true;
+ drag = true;
  }
- isSelected = true;
+ select = true;
  rect = shape;
  } else {
- isSelected = false;
+ select = false;
  }
 }
 
-function handleMouseMove(e) {
- if (isDragging) {
- rect.x = e.offsetX - rect.width / 2;
- rect.y = e.offsetY - rect.height / 2;
+function handleMouseMove(event) {
+ if (drag) {
+ rect.x = event.offsetX - rect.width / 2;
+ rect.y = event.offsetY - rect.height / 2;
  drawRect();
- } else if (isResizing) {
- rect.width = e.offsetX - rect.x;
- rect.height = e.offsetY - rect.y;
+ } else if (resizing) {
+ rect.width = event.offsetX - rect.x;
+ rect.height = event.offsetY - rect.y;
  drawRect();
  }
 }
 
 function handleMouseUp() {
- isDragging = false;
- isResizing = false;
+ drag = false;
+ resizing = false;
 }
 
-function handleKeyDown(e) {
- if (isSelected && e.key === 'Delete') {
+function handleKeyDown(event) {
+ if (select && event.key === 'Delete') {
  shapes = shapes.filter(function(shape) {
  return shape !== rect;
  });
@@ -100,10 +100,10 @@ function handleAddButtonClick() {
  drawRect();
 }
 
-function handleCanvasClick(e) {
- const mouseX = e.offsetX;
- const mouseY = e.offsetY;
- const shape = getShapeAt(mouseX, mouseY);
+function handleCanvasClick(event) {
+ const x = event.offsetX;
+ const y = event.offsetY;
+ const shape = getShapeAt(x, y);
  if (shape) {
  console.log('Shape clicked:', shape);
  } else {
