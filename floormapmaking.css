@@ -1,0 +1,18 @@
+#myCanvas {
+  position: absolute;
+  top: 5%; 
+  right: 1%;
+  border: 1px solid #ccc;
+} 
+
+#saveButton{
+  position: absolute;
+  top: 2.5px; 
+  right: 0;
+}
+
+#floorName{
+  position: absolute;
+  top: 5px; 
+  right: 53%; 
+}
