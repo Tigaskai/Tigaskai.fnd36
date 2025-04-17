@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="theme-color" content="#000000">
-        
-        <link rel="stylesheet" href="floormap.css">
-    </head>
-      
-    <body>
-        <h1 id="title">備品フロアマップ</h1>
-
-        <div id = "floorMap">
-        </div>
-        <div id = "floorName">フロアマップ</div> 
-        <button id="saveButton">新規作成</button>
-        <button id="saveButton2">編集</button>
-
-        <div id="itemInput">
-            <input type="text" id="itemName" placeholder="備品の名称">
-            <input type="text" id="itemNumber" placeholder="管理番号">
-            <input type="text" id="itemNumber" placeholder="備品の場所">
-            <input type="file" id="itemImage" accept="image/*">
-            <button id="addItemButton">追加</button>
-        </div>
-
-        <div id="itemListContainer">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+  
+    <link rel="stylesheet" href="floormap.css">
+</head>
+<body>
+    <h1 id="title">備品フロアマップ</h1>
+    <div id="floorMap">
+    </div>
+    <div id="floorName">フロアマップ</div> 
+    <button id="newMapButton">新規作成</button>
+    <div id="itemInput">
+        <input type="text" id="itemName" placeholder="備品の名称">
+        <input type="text" id="itemNumber" placeholder="管理番号">
+        <input type="text" id="itemLocation" placeholder="備品の場所">
+        <button id="addItemButton">追加</button>
+    </div>
+    <div id="itemListContainer">
+        <ul id="itemList"></ul>
+    </div>
+</body>
+<script type="text/javascript" src="floormap.js"></script>
+</html>
             <ul id="itemList"></ul>
         </div>
     </body>
