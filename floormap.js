@@ -5,10 +5,13 @@ const itemNameInput = document.getElementById("itemName");
 const itemNumberInput = document.getElementById("itemNumber");
 const itemLocationInput = document.getElementById("itemLocation");
 const itemList = document.getElementById("itemList");
+
 function newopen() {
     window.open("./floormapmaking.html");
 }
+
 newMapButton.addEventListener("click", newopen);
+
 addItemButton.addEventListener("click", function() {
     const itemName = itemNameInput.value.trim();
     const itemNumber = itemNumberInput.value.trim();
